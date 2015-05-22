@@ -631,11 +631,12 @@
     }
 
     function _setText(el, text) {
+        text && text.replace('<script', '<style').replace('</script', '</style');
         if (window.attachEvent && !window.addEventListener) { // <= IE8
-            el.innerText = text;
+            el.innerHTML = text;
         }
         else {
-            el.textContent = text;
+            el.innerHTML = text;
         }
     }
 
